@@ -1,7 +1,6 @@
 import AnimaNumeros from "./anima-numeros.js";
 
 export default function fecthAnimais(url, target) {
-  
   function createAnimal(animal) {
     const div = document.createElement("div");
     div.classList.add("numero-animal");
@@ -11,12 +10,12 @@ export default function fecthAnimais(url, target) {
 
   const numerosGrid = document.querySelector(target);
 
-  function preenhcerAnimais(animal){
+  function preenhcerAnimais(animal) {
     const divAnimal = createAnimal(animal);
     numerosGrid.appendChild(divAnimal);
   }
 
-  function animaAnimaisNumeros(){
+  function animaAnimaisNumeros() {
     const animaNumeros = new AnimaNumeros("[data-numero]", ".numeros", "ativo");
     animaNumeros.init();
   }
@@ -25,7 +24,7 @@ export default function fecthAnimais(url, target) {
     try {
       const animaisResponse = await fetch(url);
       const animaisJSON = await animaisResponse.json();
-      
+
       animaisJSON.forEach((animal) => preenhcerAnimais(animal));
       animaAnimaisNumeros();
     } catch (erro) {

@@ -29,5 +29,5 @@ initDropdown();
 initAnimaScroll();
 initMenuMobile();
 initFuncionamento();
-fetchAnimais('../../animaisAPI.json', 'numeros-grid');
+fetchAnimais('../../animaisAPI.json', '.numeros-grid');
 initFetchBitcoin();
