@@ -1,21 +1,25 @@
 // função para ajustar o accordion do FAQ
-export default function initAccordion() {
-  const classeAtivo = "ativo";
-  const accordionList = document.querySelectorAll(
-    "[data-anime='accordion'] dt"
-  );
+export default class Accordion {
+  constructor(list) {
+    this.accordionList = document.querySelectorAll(list);
+    this.classeAtivo = "ativo";
+  }
 
-  if (accordionList.length) {
-    accordionList[0].classList.add(classeAtivo);
-    accordionList[0].nextElementSibling.classList.add(classeAtivo);
+  toggleAccordion(item) {
+    item.classList.toggle(this.classeAtivo);
+    item.nextElementSibling.classList.toggle(this.classeAtivo);
+  }
 
-    const accordionHandler = (event) => {
-      event.currentTarget.classList.toggle(classeAtivo);
-      event.currentTarget.nextElementSibling.classList.toggle(classeAtivo);
-    };
-
-    accordionList.forEach((item) => {
-      item.addEventListener("click", accordionHandler);
+  addAccordionEvent() {
+    this.accordionList.forEach((item) => {
+      item.addEventListener("click", () => this.toggleAccordion(item));
     });
+  }
+
+  init() {
+    if (this.accordionList.length) {
+      this.toggleAccordion(this.accordionList[0]);
+      this.addAccordionEvent();
+    }
   }
 }
