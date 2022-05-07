@@ -17,7 +17,7 @@ export default class TabNavegacao {
     });
     const direcao = this.tabContent[index].dataset.anime;
     this.tabContent[index].classList.add(this.activeClass, direcao);
-  };
+  }
 
   // loop para adicionar o evento para todos os elementos de this.tabSelection
   addTabEvent() {
@@ -33,5 +33,6 @@ export default class TabNavegacao {
       this.activateTab(0);
       this.addTabEvent();
     }
+    return this;
   }
 }
