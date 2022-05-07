@@ -1,5 +1,5 @@
 import SmoothScroll from "./modules/scroll-suave.js";
-import initAnimaScroll from "./modules/anima-scroll.js";
+import ScrollAnima from "./modules/scroll-anima.js";
 import TabNavegacao from "./modules/tab-navegacao.js";
 import Accordion from "./modules/accordion.js";
 import Modal from "./modules/modal.js";
@@ -9,6 +9,9 @@ import initMenuMobile from "./modules/menu-mobile.js";
 import initFuncionamento from "./modules/horario-funcionamento.js";
 import fetchAnimais from "./modules/fetchAnimais.js";
 import fetchBitcoin from "./modules/fetchBitcoin.js";
+
+const scrollAnima = new ScrollAnima("[data-anime='scroll']");
+scrollAnima.init();
 
 const scrollSuave = new SmoothScroll('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -26,7 +29,6 @@ const tooltip = new Tooltip("[data-tooltip]");
 tooltip.init()
 
 initDropdown();
-initAnimaScroll();
 initMenuMobile();
 initFuncionamento();
 fetchAnimais('./animaisAPI.json', '.numeros-grid');
