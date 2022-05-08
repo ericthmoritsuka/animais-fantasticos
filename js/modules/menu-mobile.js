@@ -11,10 +11,11 @@ export default class MenuMobile {
       this.events = events;
     }
 
-    this.openMenu = this.openMenu.bind(this)
+    this.openMenu = this.openMenu.bind(this);
   }
 
-  openMenu() {
+  openMenu(event) {
+    event.preventDefault();
     this.menuBT.classList.toggle(this.activeClass);
     this.menuList.classList.toggle(this.activeClass);
     outClick(this.menuList, this.events, () => {
